@@ -16,5 +16,5 @@ jobs:
          java-version: '17'
          distribution: 'adopt'
       - name: Build Eureka Server Container Image
-        working-directory: ./Docker/02-eureka-server
+        working-directory: .\Docker\02-eureka-server
         run: mvn spring-boot:build-image -DskipTests
