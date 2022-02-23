@@ -21,10 +21,6 @@ jobs:
         working-directory: ./Docker/02-eureka-server
         run: mvn spring-boot:build-image -DskipTests
         
-      - name: Build Compra Microsservice Container Image
-        working-directory: ./Docker/02-compra-service
-        run: mvn spring-boot:build-image -DskipTests
-        
       - name: Build API Gateway Container Image
         working-directory: ./Docker/02-api-gateway
         run: mvn spring-boot:build-image -DskipTests
@@ -36,6 +32,10 @@ jobs:
       - name: Build Listar Produtos Microsservice JAR
         working-directory: ./Docker/02-listagem-de-produtos
         run: mvn clean package -DskipTests
+        
+      - name: Build Compra Microsservice Container Image
+        working-directory: ./Docker/02-compra-service
+        run: mvn spring-boot:build-image -DskipTests
       
       - name: Docker Compose Build
         working-directory: ./Docker
