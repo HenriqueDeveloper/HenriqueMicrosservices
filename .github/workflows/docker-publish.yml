@@ -41,17 +41,26 @@ jobs:
         working-directory: ./Docker
         run: docker-compose build
         
-      - name: Push To Docker Hub Container Registry
-        run:
-          docker tag ${{ secrets.DOCKER_USERNAME }}/eureka-server:0.0.1-SNAPSHOT ${{ secrets.DOCKER_USERNAME }}/eureka-server:${{github.run_id}}
-          docker tag ${{ secrets.DOCKER_USERNAME }}/api-gateway:0.0.1-SNAPSHOT ${{ secrets.DOCKER_USERNAME }}/api-gateway:${{github.run_id}}
-          docker tag ${{ secrets.DOCKER_USERNAME }}/buscar-cep-service:latest ${{ secrets.DOCKER_USERNAME }}/buscar-cep-service:${{github.run_id}}
-          docker tag ${{ secrets.DOCKER_USERNAME }}/listagem-de-produtos:latest ${{ secrets.DOCKER_USERNAME }}/listagem-de-produtos:${{github.run_id}}
-          docker tag ${{ secrets.DOCKER_USERNAME }}/compra-service:0.0.1-SNAPSHOT ${{ secrets.DOCKER_USERNAME }}/compra-service:${{github.run_id}}
-          docker push ${{ secrets.DOCKER_USERNAME }}/eureka-server:${{github.run_id}}
-          docker push ${{ secrets.DOCKER_USERNAME }}/api-gateway:${{github.run_id}}
-          docker push ${{ secrets.DOCKER_USERNAME }}/buscar-cep-service:${{github.run_id}}
-          docker push ${{ secrets.DOCKER_USERNAME }}/listagem-de-produtos:${{github.run_id}}
-          docker push ${{ secrets.DOCKER_USERNAME }}/compra-service:${{github.run_id}}
+      - name: Push to Docker Hub Container Registry
+        run: |
+          docker tag ${{secrets.DOCKER_USERNAME}}/eureka-server:0.0.1-SNAPSHOT ${{secrets.DOCKER_USERNAME}}/eureka-server:${{github.run_id}}
+          docker tag ${{secrets.DOCKER_USERNAME}}/api-gateway:0.0.1-SNAPSHOT ${{secrets.DOCKER_USERNAME}}/api-gateway:${{github.run_id}}
+          docker tag ${{secrets.DOCKER_USERNAME}}/buscar-cep-service:latest ${{secrets.DOCKER_USERNAME}}/buscar-cep-service:${{github.run_id}}
+          docker tag ${{secrets.DOCKER_USERNAME}}/listagem-de-produtos:latest ${{secrets.DOCKER_USERNAME}}/listagem-de-produtos:${{github.run_id}}
+          docker tag ${{secrets.DOCKER_USERNAME}}/compra-service:0.0.1-SNAPSHOT ${{secrets.DOCKER_USERNAME}}/compra-service:${{github.run_id}}
+          docker push ${{secrets.DOCKER_USERNAME}}/eureka-server:${{github.run_id}}
+          docker push ${{secrets.DOCKER_USERNAME}}/api-gateway:${{github.run_id}}
+          docker push ${{secrets.DOCKER_USERNAME}}/buscar-cep-service:${{github.run_id}}
+          docker push ${{secrets.DOCKER_USERNAME}}/listagem-de-produtos:${{github.run_id}}
+          docker push ${{secrets.DOCKER_USERNAME}}/compra-service:${{github.run_id}}
+          
+          
+          
+          
+          
+          
+         
+          
+
 
    
